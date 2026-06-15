@@ -1,8 +1,10 @@
-from collections.abc import Mapping
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from flask import Flask, Response, jsonify
+
+if TYPE_CHECKING:
+    from collections.abc import Mapping
 
 
 def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
