@@ -1,15 +1,18 @@
-# Termo
+# Livros
 
 Servidor simples desenvolvido pelo aluno Vinícius G. Mendonça para disciplina de DevOps da 
 Especialização em Engenharia de Serviços e Sistemas de Cloud Computing, turma de 2026.
 
-## Executando o servidor
+## Instalando as dependências
+
+Se você estiver usando no devcontainer, o container já é gerado com todas as dependências instaladas. 
+Pule diretamente para o passo [Executando o servidor](#Executando-o-servidor).
 
 ```bash
 python -m venv .venv
 ```
 
-3. Inicie-o
+3. Inicie-o()
 
 No Windows:
 ```bash
@@ -27,7 +30,9 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-5. Execute o servidor
+## Executando o servidor
+
+Pela linha de comando, rode:
 
 ```bash
 flask --app books run --debug
