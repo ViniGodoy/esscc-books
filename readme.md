@@ -5,14 +5,18 @@ Especialização em Engenharia de Serviços e Sistemas de Cloud Computing, turma
 
 ## Instalando as dependências
 
-Se você estiver usando no devcontainer, o container já é gerado com todas as dependências instaladas. 
-Pule diretamente para o passo [Executando o servidor](#Executando-o-servidor).
+Se você estiver usando no devcontainer, ele já foi configurado para instalar todas as dependências 
+do projeto. Pule diretamente para o passo [Executando o servidor](#Executando-o-servidor).
 
+Para executar da sua máquina, instale o Python 3.14 e execute os seguintes comandos:
+
+1. Instale o [Python 3.14](https://www.python.org/downloads/)
+2. Crie o ambiente virtual do projeto
 ```bash
 python -m venv .venv
 ```
 
-3. Inicie-o()
+3. Inicie o ambiente:
 
 No Windows:
 ```bash
@@ -47,3 +51,4 @@ Bibliotecas:
 * Flask SQL Alchemy 3.1.x
 * SQL Alchemy 2.0.x
 * Pytest 9.1.x
+* Coverage 7.14.x
