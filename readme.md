@@ -3,10 +3,16 @@
 Servidor simples desenvolvido pelo aluno Vinícius G. Mendonça para disciplina de DevOps da 
 Especialização em Engenharia de Serviços e Sistemas de Cloud Computing, turma de 2026.
 
-## Instalando as dependências
+## Executando o servidor
 
-Se você estiver usando no devcontainer, ele já foi configurado para instalar todas as dependências 
-do projeto. Pule diretamente para o passo [Executando o servidor](#Executando-o-servidor).
+Se você estiver usando no devcontainer, todas as dependências já estarão instaladas e prontas para uso.
+Basta executar na linha de comando:
+
+```bash
+flask --app books run --debug
+```
+
+## Instalando as dependências
 
 Para executar da sua máquina, instale o Python 3.14 e execute os seguintes comandos:
 
@@ -32,14 +38,6 @@ source .venv/bin/activate
 
 ```bash
 pip install -r requirements.txt
-```
-
-## Executando o servidor
-
-Pela linha de comando, rode:
-
-```bash
-flask --app books run --debug
 ```
 
 ## Ambiente e dependências
