@@ -3,6 +3,15 @@
 Servidor simples desenvolvido pelo aluno Vinícius G. Mendonça para disciplina de DevOps da 
 Especialização em Engenharia de Serviços e Sistemas de Cloud Computing, turma de 2026.
 
+### Endpoints da API
+
+A API implementa dois endpoints principais:
+
+- `GET /api/livros`: Inserção de um livro
+- `POST /api/livros`: Listagem de livros
+
+A home (`GET /`) do servidor fornece uma landing page com o link para documentação swagger.
+
 ## Executando o servidor
 
 Se você estiver usando no devcontainer, todas as dependências já estarão instaladas e prontas para uso.
