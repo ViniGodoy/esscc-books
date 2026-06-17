@@ -80,7 +80,7 @@ body {
 }
 
 .content-box {
-    background-color: rgba(255, 255, 255, 0.15); /* Restaurando o fundo semi-transparente */
+    background-color: rgba(0, 0, 0, 0.6); /* Restaurando o fundo semi-transparente */
     padding: 2.5rem; /* Restaurando o padding */
     border-radius: 15px; /* Mantendo o arredondamento */
     max-width: 400px;
@@ -90,7 +90,7 @@ body {
 }
 
 .content-box h1 {
-    font-size: 5.5rem; /* Aumentado para dar mais peso */
+    font-size: 4.7rem; /* Aumentado para dar mais peso */
     font-weight: 700;
     line-height: 1.1;
     margin: 0;
