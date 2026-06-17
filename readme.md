@@ -12,7 +12,7 @@ Basta executar na linha de comando:
 flask --app server run --debug
 ```
 
-Os testes unitários também podem ser executados través do pytest:
+Os testes unitários também podem ser executados através do pytest:
 ```bash
 pytest -v
 ```
