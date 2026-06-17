@@ -9,7 +9,18 @@ Se você estiver usando no devcontainer, todas as dependências já estarão ins
 Basta executar na linha de comando:
 
 ```bash
-flask --app books run --debug
+flask --app server run --debug
+```
+
+Os testes unitários também podem ser executados través do pytest:
+```bash
+pytest -v
+```
+
+Por fim, há um linter para rastrear possíveis bugs e má práticas de código:
+```bash
+ruff check --fix
+ruff format
 ```
 
 ## Instalando as dependências
@@ -38,15 +49,5 @@ source .venv/bin/activate
 
 ```bash
 pip install -r requirements.txt
+pip install -e .
 ```
-
-## Ambiente e dependências
-
-Feito para **Python 3.14**
-
-Bibliotecas:
-* Flask 3.1.x
-* Flask SQL Alchemy 3.1.x
-* SQL Alchemy 2.0.x
-* Pytest 9.1.x
-* Coverage 7.14.x

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor de Livros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <!-- Barra de Navegação no Topo -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="icon">📚</span> DevOps
+        </div>
+        <ul class="nav-links">
+        </ul>
+        <div class="menu-icon">☰</div>
+    </nav>
+
+    <!-- Seção Principal com Imagem e Conteúdo -->
+    <main class="hero-section">
+        <div class="content-box">
+            <h1>Livros<br><span>Por Vinícius G. Mendonça</span></h1>
+            <p>
+                Este servidor de livros ajuda você a organizar, gerenciar e proteger sua biblioteca virtual contra imprevistos que podem ocorrer antes ou durante a sua leitura.
+            </p>
+            <a href="/api/swagger-ui" class="btn-primary">Ver documentação</a>
+        </div>
+    </main>
+</body>
+</html>
