@@ -162,7 +162,7 @@ body {
         padding: 0 2rem;
         justify-content: center;
         text-align: center;
-        background-image: linear-gradient(to right, rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('img/Books.webp');
+        background-image: linear-gradient(to right, rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('img/books.webp');
     }
     .content-box h1 {
         font-size: 3.5rem;
