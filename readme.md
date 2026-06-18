@@ -3,7 +3,9 @@
 Servidor simples desenvolvido pelo aluno Vinícius G. Mendonça para disciplina de DevOps da 
 Especialização em Engenharia de Serviços e Sistemas de Cloud Computing, turma de 2026.
 
-### Endpoints da API
+<img width="996" height="708" alt="image" src="https://github.com/user-attachments/assets/8a4f6b10-f6a6-41d0-930f-93e8735fc772" />
+
+## Endpoints da API
 
 A API implementa dois endpoints principais:
 
