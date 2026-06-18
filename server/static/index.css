@@ -74,7 +74,7 @@ body {
     height: calc(100vh - 70px);
     padding: 0 8vw; /* Usa view width para sempre manter a margem proporcional à tela */
 
-    background-image: linear-gradient(to right, rgba(0, 77, 64, 0.9) 0%, rgba(0, 77, 64, 0.6) 40%, rgba(0, 77, 64, 0.2) 100%), url('img/Books.webp');
+    background-image: linear-gradient(to right, rgba(0, 77, 64, 0.9) 0%, rgba(0, 77, 64, 0.6) 40%, rgba(0, 77, 64, 0.2) 100%), url('img/books.webp');
     background-size: cover;
     background-position: center;
 }
