@@ -26,6 +26,7 @@ def test_get_books_returns(client):
 
     assert LivroSchema().validate(response.json)
 
+
 def test_post_books(client):
     response = client.post("/api/livros/", json={"titulo": "O senhor dos aneis"})
     assert response.status_code == 422

@@ -97,18 +97,26 @@ body {
     color: var(--accent-orange);
 }
 
-.content-box h1 span {
+
+.content-box h1 a {
     font-size: 1.8rem;
     font-weight: 400;
     color: var(--text-light);
     display: block;
     margin-top: 0.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.content-box h1 a:hover {
+    color: #0077b5; /* LinkedIn blue */
+    text-shadow: 0 0 20px rgba(0, 119, 181, 0.45);
 }
 
 .content-box p {
     font-size: 1.2rem;
     line-height: 1.6;
-    margin: 2rem 0 3rem 0; /* Mais respiro entre o título e o botão */
+    margin: 2rem 0 3rem 0; 
 }
 
 .btn-primary {
@@ -121,7 +129,7 @@ body {
     font-weight: 700;
     font-size: 1.1rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 171, 64, 0.4); /* Sombra para o botão saltar mais */
+    box-shadow: 0 4px 15px rgba(255, 171, 64, 0.4); 
 }
 
 .btn-primary:hover {

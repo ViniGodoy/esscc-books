@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 from types import SimpleNamespace
 
 import pytest
@@ -7,19 +7,19 @@ from server import create_app
 from server.api.books import repository
 
 
-def _book_body(**kwargs):    
+def _book_body(**kwargs):
     """Retorna um payload de livro falso para uso em testes.
 
     Valores defaults seguem so formato esperado pelo endpoint de livros.
     Qualquer chave pode ser sobrescrita passando kwargs.
     """
-    id = kwargs.get("id")
+    book_id = kwargs.get("id")
     book = {
-        "titulo": f"Livro de Teste {id or 1}",
-        "autor": f"Autor de Teste {id or 1}",
+        "titulo": f"Livro de Teste {book_id or 1}",
+        "autor": f"Autor de Teste {book_id or 1}",
         "issn": "1234-5678",
         "data_publicacao": "2024-01-01",
-        "paginas": (id or 1)*100,
+        "paginas": (book_id or 1) * 100,
     }
     book.update(kwargs)
     return book
@@ -37,8 +37,12 @@ def client(app):
 
 def test_get_livros_returns_two_books(client, monkeypatch):
     books = [
-        _book_body(id=1, data_publicacao=datetime(2026, 1, 1)), 
-        _book_body(id=2, data_publicacao=datetime(2026, 2, 2))
+        _book_body(
+            id=1, data_publicacao=datetime.datetime(2026, 1, 1, tzinfo=datetime.UTC)
+        ),
+        _book_body(
+            id=2, data_publicacao=datetime.datetime(2026, 2, 2, tzinfo=datetime.UTC)
+        ),
     ]
     monkeypatch.setattr(repository, "find_all", lambda: books)
 
@@ -72,7 +76,7 @@ def test_post_livros_creates_when_payload_is_valid(client, monkeypatch):
 
     def fake_save(book):
         captured["book"] = book
-        
+
         return SimpleNamespace(
             id=1,
             titulo=book.titulo,
@@ -132,13 +136,18 @@ def test_post_livros_returns_422_when_pages_are_negative(client):
 
 
 def test_post_livros_returns_422_when_publication_date_is_invalid(client):
-    response = client.post("/api/livros/", json=_book_body(data_publicacao="2024-13-01"))
+    response = client.post(
+        "/api/livros/", json=_book_body(data_publicacao="2024-13-01")
+    )
 
     assert response.status_code == 422
     assert "data_publicacao" in response.text
 
+
 def test_post_livros_returns_422_when_publication_date_is_in_the_future(client):
-    response = client.post("/api/livros/", json=_book_body(data_publicacao="2500-01-01"))
+    response = client.post(
+        "/api/livros/", json=_book_body(data_publicacao="2500-01-01")
+    )
 
     assert response.status_code == 422
     assert "data_publicacao" in response.text
