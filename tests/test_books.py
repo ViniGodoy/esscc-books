@@ -13,13 +13,13 @@ def _book_body(**kwargs):
     Valores defaults seguem so formato esperado pelo endpoint de livros.
     Qualquer chave pode ser sobrescrita passando kwargs.
     """
-    book_id = kwargs.get("id")
+    book_id = kwargs.get("id", 1)
     book = {
-        "titulo": f"Livro de Teste {book_id or 1}",
-        "autor": f"Autor de Teste {book_id or 1}",
+        "titulo": f"Livro de Teste {book_id}",
+        "autor": f"Autor de Teste {book_id}",
         "issn": "1234-5678",
         "data_publicacao": "2024-01-01",
-        "paginas": (book_id or 1) * 100,
+        "paginas": book_id * 100,
     }
     book.update(kwargs)
     return book
