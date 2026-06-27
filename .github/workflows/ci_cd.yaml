@@ -2,9 +2,10 @@ name: "Books pipeline"
 on:
   workflow_dispatch:
 
+
 jobs:
   estagio01:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: "Olá mundo!"
         run: echo "Olá github actions"
