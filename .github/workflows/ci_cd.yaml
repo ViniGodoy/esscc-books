@@ -1,10 +1,40 @@
-name: "Books pipeline"
+name: CI/CD - Servidor de Livros
+
+
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  estagio01:
-    runs-on: ubuntu-22.04
+  build-and-test:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: "Olá mundo!"
-        run: echo "Olá github actions"
+      - name: 📚 Baixando o código do repositório
+        uses: actions/checkout@v7
+
+      - name: 🐍 Configurando o ambiente Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.14' 
+
+      - name: 🎨 Verificando a formatação
+        run: |
+          pip install ruff
+          ruff format --check
+
+      - name: 🔎 Executando o linter
+        run: |
+          ruff check 
+
+      # Step 4: Instalar as dependências
+      - name: 📦 Instalando as dependências do projeto
+        run: |
+          pip install -r requirements.txt
+          pip install -e . # Instala o projeto em modo editável
+
+      # Step 5: Executar os testes com Pytest
+      - name: 🧪 Executando os testes unitários com Pytest
+        run: pytest
