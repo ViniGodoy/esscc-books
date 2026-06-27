@@ -1,5 +1,6 @@
 name: CI/CD - Servidor de Livros
 
+
 on:
   push:
     branches: [ main ]
@@ -12,10 +13,10 @@ jobs:
 
     steps:
       - name: 📚 Baixando o código do repositório
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🐍 Configurando o ambiente Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.14' 
 
