@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, Any
 from flask import Flask
 from flask_smorest import Api
 
-from server.database import db  # Importa o objeto db
+from server.database import db, migrate  # Importa db e migrate
 
 if TYPE_CHECKING:
     from collections.abc import Mapping
@@ -38,14 +38,12 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
 
     instance_path.mkdir(parents=True, exist_ok=True)
 
-    # Inicializa o SQLAlchemy com o aplicativo Flask
+    # Inicializa as extensões com o app
     db.init_app(app)
+    migrate.init_app(app, db)
 
-    # Cria as tabelas do banco de dados dentro do contexto da aplicação
-    with app.app_context():
-        from server.api.books.models import Livro  # noqa: F401
-
-        db.create_all()
+    # É importante importar os modelos aqui para que o Migrate os reconheça
+    from server.api.books.models import Livro  # noqa: F401
 
     # Inicializa o flask-smorest
     api = Api(app)

@@ -20,21 +20,43 @@ Se você estiver usando no devcontainer, todas as dependências já estarão ins
 Basta executar na linha de comando:
 
 ```bash
-flask --app server run --debug
+flask run --debug
 ```
 
-Os testes unitários também podem ser executados através do pytest:
-```bash
-pytest -v
-```
+## Executando Localmente com Docker
 
-Por fim, há um linter para rastrear possíveis bugs e má práticas de código:
-```bash
-ruff check --fix
-ruff format
-```
+É possível executar a aplicação localmente usando Docker, o que garante um ambiente consistente e isolado.
 
-## Instalando as dependências
+1.  **Construa a imagem Docker:**
+    Este comando cria a imagem a partir do `Dockerfile` na raiz do projeto.
+
+    ```bash
+    docker build -t servidor-livros .
+    ```
+
+2.  **Execute o contêiner:**
+    Este comando inicia um contêiner a partir da imagem recém-criada, mapeia a porta 5000 do contêiner para a porta 5000 da sua máquina e nomeia o contêiner como `livros-app` para facilitar o gerenciamento.
+
+    ```bash
+    docker run -d -p 5000:5000 --name livros-app servidor-livros
+    ```
+
+    - A flag `-d` executa o contêiner em modo "detached" (em background).
+    - Após executar, a aplicação estará disponível em `http://localhost:5000`.
+
+3.  **Para parar o contêiner:**
+
+    ```bash
+    docker stop livros-app
+    ```
+
+4.  **Para ver os logs:**
+
+    ```bash
+    docker logs -f livros-app
+    ```
+
+## Executando localmente (sem docker)
 
 Para executar da sua máquina, instale o Python 3.14 e execute os seguintes comandos:
 
@@ -61,4 +83,25 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 pip install -e .
+```
+
+5. Inicialize o banco de dados
+
+```bash
+flask --app server db init
+flask --app server db migrate
+flask --app server db upgrade
+```
+
+## Testes e Qualidade de Código
+
+Os testes unitários também podem ser executados através do pytest:
+```bash
+pytest -v
+```
+
+Por fim, há um linter para rastrear possíveis bugs e má práticas de código:
+```bash
+ruff check --fix
+ruff format
 ```
